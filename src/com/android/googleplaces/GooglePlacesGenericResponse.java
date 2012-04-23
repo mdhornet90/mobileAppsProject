@@ -4,10 +4,6 @@ public class GooglePlacesGenericResponse {
 
 	private String[] htmlAttributions;
 	private String status;
-	
-	public GooglePlacesGenericResponse() {
-		super();
-	}
 
 	public String getStatus() {
 		return status;

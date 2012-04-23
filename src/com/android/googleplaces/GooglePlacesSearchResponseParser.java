@@ -57,34 +57,4 @@ public class GooglePlacesSearchResponseParser extends GooglePlacesRequestsParser
 		
 		return gpResponse;
 	}
-
-	private GPGeometry getParsedGeometry(final JSONObject jsonObjToBeParsed) {
-		final JSONObject geometryObject = this.getJSONObjectWithException(jsonObjToBeParsed, "geometry");
-		final JSONObject locationObject = this.getJSONObjectWithException(geometryObject, "location");
-		
-		final String longitude = this.getJSONStringWithException(locationObject, "lng");
-		final String latitude = this.getJSONStringWithException(locationObject, "lat");
-		final String viewport = this.getJSONStringWithException(geometryObject, "viewport");
-		
-		return new GPGeometry(longitude, latitude, viewport);
-	}
-	
-	private GPEvent[] getParsedEvents(final JSONObject jsonObjToBeParsed) {
-		final JSONArray eventsArray = this.getJSONArrayWithException(jsonObjToBeParsed, "events");
-		if (eventsArray == null) {
-			return null; //Short-circuit that avoids the hazard of a NullPointerException
-		}
-		
-		final int eventCount = eventsArray.length();
-		final GPEvent[] events = new GPEvent[eventCount];
-		
-		for (int eventIter = 0; eventIter < eventCount; eventIter++) {
-			JSONObject eventObject = this.getJSONObjectWithException(eventsArray, eventIter);
-			events[eventIter].setEventID(this.getJSONStringWithException(eventObject, "event_id"));
-			events[eventIter].setSummary(this.getJSONStringWithException(eventObject, "summary"));
-			events[eventIter].setEventURL(this.getJSONStringWithException(eventObject, "url"));
-		}
-		
-		return events;
-	}
 }

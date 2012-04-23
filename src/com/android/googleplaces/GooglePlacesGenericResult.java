@@ -9,7 +9,9 @@ public class GooglePlacesGenericResult {
 	private String rating;
 	private String[] types;
 	private String vicinity;
-
+	private String id;
+	private String reference;
+	
 	public static class GPEvent {
 		private String eventID;
 		private String summary;
@@ -61,6 +63,19 @@ public class GooglePlacesGenericResult {
 		
 	}
 
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getReference() {
+		return reference;
+	}
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+	
 	public GPEvent[] getEvents() {
 		return events;
 	}
@@ -146,7 +161,7 @@ public class GooglePlacesGenericResult {
 			this.viewport = viewport;
 		}
 		
-		private class GPLocation {
+		public class GPLocation {
 			private String longitude;
 			private String latitude;
 			
@@ -168,9 +183,4 @@ public class GooglePlacesGenericResult {
 			}
 		}
 	}
-
-	public GooglePlacesGenericResult() {
-		super();
-	}
-
 }
