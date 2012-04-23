@@ -1,11 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
     
-	<TextView android:id="@id/android:empty"
-		android:layout_width="fill_parent" 
-		android:layout_height="fill_parent" 
-		android:text="AW SHIT, IT WORKS BIATCH!" />
-	
-</RelativeLayout>
+	<WebView android:id="@+id/map_webview"
+	      android:layout_width="fill_parent"
+	      android:layout_height="0dip"
+	      android:layout_weight="2"
+	      android:focusable="false"
+	      android:clickable="false"
+	      />
+    
+	<ScrollView
+	    android:layout_width="fill_parent"
+	    android:layout_height="0dip"
+	    android:layout_weight="1"
+	    >
+	    
+	<RelativeLayout
+	    android:id="@+id/custom_gp_result_row"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="6dip" >
+	    
+	    
+	    <TextView android:id="@+id/name"
+	        android:layout_width = "fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/map_webview"
+	        android:layout_alignParentTop="true"
+	        android:padding="6dip" />
+	    
+		<TextView android:id="@+id/rating"
+	        android:layout_width = "fill_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="6dip"
+	        android:layout_below="@id/name" />
+		
+	    <TextView android:id="@+id/address"
+	        android:layout_width = "fill_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="6dip"
+	        android:linksClickable="true"
+	        android:autoLink="map"
+	        android:layout_below="@id/rating" />
+	    
+	    <TextView android:id="@+id/phone_number"
+	        android:layout_width = "fill_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="6dip"
+	        android:linksClickable="true"
+	        android:autoLink="phone"
+	        android:layout_below="@id/address" />
+	    
+	    <TextView android:id="@+id/website"
+	        android:layout_width = "fill_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="6dip"
+	        android:linksClickable="true"
+			android:autoLink="web"
+	        android:layout_below="@id/phone_number" />
+	    
+	    <TextView android:id="@+id/places_website"
+	        android:layout_width = "fill_parent"
+	        android:layout_height="wrap_content"
+	        android:padding="6dip"
+	        android:linksClickable="true"
+	        android:autoLink="web"
+	        android:layout_below="@id/website"
+	        />
+	</RelativeLayout>
+	</ScrollView>
+</LinearLayout>

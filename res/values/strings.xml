@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Google Places Lookup</string>
+    <string name="app_name">E.C.H.O.</string>
     <string name="gps_activate_button">Update current location</string>
 	<string name="custom_row_icon">Contains the icon received from the URL given in the search result</string>
 	
